@@ -1,0 +1,162 @@
+<html>
+<head> 
+    <title>map robot</title>
+
+    </head>
+
+  <style>
+  	body {
+  		background:#F5F5F5;
+  	}
+  	header{
+    background-color: #F5F5F5;
+    padding: 3px;
+    text-align: center;
+    
+}
+    header li {
+	display: inline-block;
+    padding-right: 50px;
+}
+ 
+      .row {
+      display: inline;
+      justify-content: center;
+      align-items: center;
+      padding-left: 3%;
+      margin-left: 10%;
+
+      }
+  
+      .del{
+      justify-content: center;
+      align-items: center;
+      margin-top: 1%;
+      margin-left: 42%;
+      }
+
+    button {
+    width: 18%;
+    padding: 10px 20px ;
+    font-size: 16px;
+    border-radius: 25px;
+    background-color: #116A7B;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    }
+    button:hover {
+        background: #9DB2BF;
+        color: black;   
+
+    }
+    canvas{
+     margin-top: 1%;
+     margin-left: 16%;
+     box-shadow: 0 0 3px #887575;
+
+    }
+  	
+  </style>
+
+    <body>
+    	  <header> 
+        <ul>
+            <li><img src="logosmart.png"alt=""></li>
+        
+        </ul>
+    </header>
+  <form action='maprobott.php' method='post' id='form' >
+    <div class="row">
+       
+        <button type="submit" name="btn" id="btndira"  value="F" onclick="Forward()"> &#8593; </button>
+        <button type="submit" name="btn" id="btndira" value="L" onclick="Left()"> &#8592; </button>
+        <button type="submit" name="btn"  id="btndira" value="R" onclick="Right()"> &#8594; </button>
+        <button type="submit" name="btn" id="btndira" value="B" onclick="Back()"> &#8595; </button>
+
+</form>
+    </div>
+  
+ <canvas id="myCanvas" width="800" height="350" ></canvas>
+
+<p id="result"></p>
+  <div class="del">
+     <button type="submit" class="button" onclick="Delete()" >Delete</button> 
+  </div>     
+
+
+<script >
+
+
+
+
+
+
+    var can = document.querySelector("#myCanvas");
+    var ctx = can.getContext("2d");
+
+    ctx.lineWidth = "5";
+    ctx.strokeStyle = "darkblue";
+    var xbase=400;
+    var ybase=175; 
+    ctx.beginPath();
+
+
+
+
+   function Forward() {
+            ctx.moveTo(xbase, ybase);
+            ybase -= 10;
+            ctx.lineTo(xbase, ybase);
+            ctx.stroke();
+
+
+
+
+        }
+        function Back() {
+            ctx.moveTo(xbase, ybase);
+            ybase += 10;
+            ctx.lineTo(xbase, ybase);
+            ctx.stroke();
+
+      
+           
+        }
+        function Right() {
+            ctx.moveTo(xbase, ybase);
+            xbase += 10;
+            ctx.lineTo(xbase, ybase);
+            ctx.stroke();
+
+ 
+        }
+        function Left() {
+            ctx.moveTo(xbase, ybase);
+            xbase -= 10;
+            ctx.lineTo(xbase, ybase);
+            ctx.stroke();
+
+
+        }
+   
+    
+
+function Delete() {
+xbase=400,ybase=175;
+    ctx.closePath();
+    ctx.clearRect(0, 0, can.width, can.height);
+    ctx.beginPath();
+  
+}
+
+
+   
+</script>
+
+    </body>
+
+</html>
+
+
